@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>particle displacement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div id="dropzone">
+  <svg width="80" height="56" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1" width="78" height="54" rx="12" stroke="white" stroke-width="1" stroke-dasharray="4 3"/>
+    <path d="M34 20 Q34 18 36 19.2 L50 27.2 Q52 28 50 28.8 L36 36.8 Q34 38 34 36 Z" fill="white"/>
+  </svg>
+  <div id="dropzone-text">
+    <h2>Drag &amp; Drop your video here</h2>
+    <p>or click to browse (mp4, mov, webm)</p>
+  </div>
+  <input type="file" id="fileInput" accept="video/*">
+</div>
+
+<div id="ui">
+  <div id="sliders">
+    <div class="ctrl">
+      <label>density</label>
+      <div class="slider-wrap">
+        <input type="range" id="densitySlider" min="2" max="12" step="1" value="5">
+        <div class="thumb"><svg width="12" height="20" viewBox="0 0 12 20"><line x1="6" y1="0" x2="6" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/><line x1="1" y1="10" x2="11" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/></svg></div>
+      </div>
+      <span id="densityVal">5</span>
+    </div>
+    <div class="ctrl">
+      <label>repulsion</label>
+      <div class="slider-wrap">
+        <input type="range" id="repelSlider" min="20" max="180" step="1" value="50">
+        <div class="thumb"><svg width="12" height="20" viewBox="0 0 12 20"><line x1="6" y1="0" x2="6" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/><line x1="1" y1="10" x2="11" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/></svg></div>
+      </div>
+      <span id="repelVal">50</span>
+    </div>
+    <div class="ctrl">
+      <label>force</label>
+      <div class="slider-wrap">
+        <input type="range" id="forceSlider" min="1" max="12" step="0.5" value="5">
+        <div class="thumb"><svg width="12" height="20" viewBox="0 0 12 20"><line x1="6" y1="0" x2="6" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/><line x1="1" y1="10" x2="11" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/></svg></div>
+      </div>
+      <span id="forceVal">5</span>
+    </div>
+    <div class="ctrl">
+      <label>trail</label>
+      <div class="slider-wrap">
+        <input type="range" id="trailSlider" min="4" max="80" step="1" value="18">
+        <div class="thumb"><svg width="12" height="20" viewBox="0 0 12 20"><line x1="6" y1="0" x2="6" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/><line x1="1" y1="10" x2="11" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/></svg></div>
+      </div>
+      <span id="trailVal">18</span>
+    </div>
+    <div class="ctrl">
+      <label>size</label>
+      <div class="slider-wrap">
+        <input type="range" id="sizeSlider" min="0.3" max="3" step="0.1" value="1.2">
+        <div class="thumb"><svg width="12" height="20" viewBox="0 0 12 20"><line x1="6" y1="0" x2="6" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/><line x1="1" y1="10" x2="11" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-linecap="round"/></svg></div>
+      </div>
+      <span id="sizeVal">1.2</span>
+    </div>
+  </div>
+  <button id="resetBtn">Rebuild</button>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
